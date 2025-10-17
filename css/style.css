@@ -11,237 +11,139 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
-html {
-  color: #222;
-  font-size: 1em;
-  line-height: 1.4;
+/* style.css
+Svart/vit/grå design.
+- Denna fil innehåller utseendet på hemsidan.
+*/
+
+:root{
+  --bg: #0b0b0b;
+  --panel: #111111;
+  --muted: #9b9b9b;
+  --text: #ffffff;
+  --card-bg: #161616;
+  --accent: #dcdcdc;
 }
 
-/*
- * Remove text-shadow in selection highlight:
- * https://twitter.com/miketaylr/status/12228805301
- *
- * Customize the background color to match your design.
- */
+*{box-sizing:border-box;margin:0;padding:0;font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;}
 
-::-moz-selection {
-  background: #b3d4fc;
-  text-shadow: none;
+body{
+  background: var(--bg);
+  color: var(--text);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+.site-header{
+  text-align:center;
+  padding:2rem 1rem;
+  background: linear-gradient(180deg, #0d0d0d, #0a0a0a);
+  border-bottom: 1px solid #222;
+}
+.site-header h1{
+  font-size:1.8rem;
+  letter-spacing:0.5px;
+}
+.site-header .lead{
+  margin-top:0.3rem;
+  color: var(--muted);
+  font-size:0.95rem;
 }
 
-::selection {
-  background: #b3d4fc;
-  text-shadow: none;
+main{
+  flex:1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:2rem 1rem;
 }
 
-/*
- * A better looking default horizontal rule
- */
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0;
+/* Karusellsektion */
+.carousel-section{
+  width:100%;
+  max-width:860px;
+  text-align:center;
 }
 
-/*
- * Remove the gap between audio, canvas, iframes,
- * images, videos and the bottom of their containers:
- * https://github.com/h5bp/html5-boilerplate/issues/440
- */
-
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
-  vertical-align: middle;
+/* Kort (bild + text) */
+.moon-card{
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius:12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  display:inline-block;
+  min-width:320px;
 }
 
-/*
- * Remove default fieldset styles.
- */
-
-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
+.moon-card img{
+  width:320px;
+  height:320px;
+  object-fit:contain;
+  display:block;
+  margin:0 auto;
+  filter: drop-shadow(0 6px 16px rgba(0,0,0,0.7));
 }
 
-/*
- * Allow only vertical resizing of textareas.
- */
-
-textarea {
-  resize: vertical;
+.moon-caption{
+  margin-top:1rem;
+}
+.moon-caption h2{
+  font-size:1.6rem;
+  margin-bottom:0.25rem;
+}
+.moon-caption p{
+  margin-top:0;
+  color:var(--muted);
+  font-size:1rem;
 }
 
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-/* ==========================================================================
-   Helper classes
-   ========================================================================== */
-
-/*
- * Hide visually and from screen readers
- */
-
-.hidden,
-[hidden] {
-  display: none !important;
+/* Kontroller */
+.controls{
+  margin-top:1rem;
+  display:flex;
+  gap:0.6rem;
+  justify-content:center;
+  align-items:center;
+}
+.controls button{
+  background:transparent;
+  border:1px solid #2a2a2a;
+  color:var(--text);
+  padding:0.6rem 0.9rem;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:1rem;
+}
+.controls button:hover{
+  border-color:#444;
+  background:rgba(255,255,255,0.02);
+}
+/* förklarande text */
+.explain{
+  margin-top:1.4rem;
+  max-width:720px;
+  color:var(--muted);
+  font-size:0.95rem;
+  text-align:left;
+  margin-left:auto;
+  margin-right:auto;
 }
 
-/*
- * Hide only visually, but have it available for screen readers:
- * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
- *
- * 1. For long content, line feeds are not interpreted as spaces and small width
- *    causes content to wrap 1 word per line:
- *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
- */
-
-.visually-hidden {
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  /* 1 */
+/* Footer */
+.site-footer{
+  text-align:center;
+  padding:1rem;
+  border-top:1px solid #111;
+  color:var(--muted);
+  font-size:0.9rem;
 }
 
-/*
- * Extends the .visually-hidden class to allow the element
- * to be focusable when navigated to via the keyboard:
- * https://www.drupal.org/node/897638
- */
-
-.visually-hidden.focusable:active,
-.visually-hidden.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  white-space: inherit;
-  width: auto;
-}
-
-/*
- * Hide visually and from screen readers, but maintain layout
- */
-
-.invisible {
-  visibility: hidden;
-}
-
-/*
- * Clearfix: contain floats
- *
- * The use of `table` rather than `block` is only necessary if using
- * `::before` to contain the top-margins of child elements.
- */
-
-.clearfix::before,
-.clearfix::after {
-  content: "";
-  display: table;
-}
-
-.clearfix::after {
-  clear: both;
-}
-
-/* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
-
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
-}
-
-@media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-  (min-resolution: 1.25dppx),
-  (min-resolution: 120dpi) {
-  /* Style adjustments for high resolution devices */
-}
-
-/* ==========================================================================
-   Print styles.
-   Inlined to avoid the additional HTTP request:
-   https://www.phpied.com/delay-loading-your-print-css/
-   ========================================================================== */
-
-@media print {
-  *,
-  *::before,
-  *::after {
-    background: #fff !important;
-    color: #000 !important;
-    /* Black prints faster */
-    box-shadow: none !important;
-    text-shadow: none !important;
+/* Responsivt */
+@media (max-width:420px){
+  .moon-card img{
+    width:220px;
+    height:220px;
   }
-
-  a,
-  a:visited {
-    text-decoration: underline;
-  }
-
-  a[href]::after {
-    content: " (" attr(href) ")";
-  }
-
-  abbr[title]::after {
-    content: " (" attr(title) ")";
-  }
-
-  /*
-   * Don't show links that are fragment identifiers,
-   * or use the `javascript:` pseudo protocol
-   */
-  a[href^="#"]::after,
-  a[href^="javascript:"]::after {
-    content: "";
-  }
-
-  pre {
-    white-space: pre-wrap !important;
-  }
-
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
-  }
-
-  tr,
-  img {
-    page-break-inside: avoid;
-  }
-
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
-  }
-
-  h2,
-  h3 {
-    page-break-after: avoid;
-  }
+  .moon-card{ padding:1rem; }
+  .site-header h1{ font-size:1.4rem; }
 }
-

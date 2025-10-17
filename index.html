@@ -1,33 +1,73 @@
-<!doctype html>
-<html class="no-js" lang="">
-
+<!DOCTYPE html>
+<html lang="sv">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-  <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title> Månens faser Hemsida för Assignment 1, 2025-10-17 </title>
 
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-  <meta property="og:image:alt" content="">
-
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
-
-  <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#fafafa">
+  <! Länk till CSS >
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
-  <script src="js/app.js"></script>
+<header class="site-header">
+  <h1>Månens faser</h1>
+  <p class="lead">Ett exempel som visar månens faser</p>
+</header>
 
+
+<main id="main-content">
+  <section class="carousel-section" aria-label="Månfas-karusell">
+    <div class="moon-card" id="moonCard">
+      <img id="moonImage" src="images/new-moon.png" alt="Månens fas" />
+      <div class="moon-caption">
+        <h2 id="moonName">Nymåne</h2>
+        <p id="moonDate">—</p>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="prevBtn" aria-label="Föregående fas">◀</button>
+      <button id="nextBtn" aria-label="Nästa fas">▶</button>
+      <button id="randomBtn" aria-label="Slumpa fas">Slumpa</button>
+    </div>
+
+    <! förklaring vad beökaren ska göra på hemsidan>
+    <div class="explain">
+      <h3>Hur detta fungerar</h3>
+      <p>
+        Tryck på pilarna för att bläddra mellan fyra månfaser. Datumet ska beräknas i JavaScript och visas under fasnamnet.
+        (I detta exempel visas kommande datum ungefär var 7:e dag för att visa en knapp funktion.)
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p> 2025 Assignment 1 HTML, CSS, och JavaScript</p>
+</footer>
+
+<! Koppla app.js >
+<script src="app.js"></script>
+
+<!
+Tillvägagångsett för uppgiften:
+Jag har skapat en enkel navigerande hemsida för att visa månens 4 faser baserat på datum. Knapp funktionen ska visa
+besökaren vilka datum som månens kommande faser kommer vara i, och funktionen ska kalla på datumen baserat på en enklare
+7dagars lösning.
+
+Jag bad ChatGPT om strukturen för koderna för att kunna koppla på funktionerna i javascript. Med störst fokus på att
+lösa knapp strukturen ock karusellerna av bilderna, och hur man kopplar knappfunktionen till att ändra bilderna per fas.
+Koderna jag fått av ChatGPT är sedan det jag suttit och jobbat i för att förstå dess lösningar och ändra det jag kan.
+
+De olika filernas ändamål:
+- HTML: Struktur och de olika elementen (header, main, footer samt bild- och kontroll-element).
+- CSS: Filen style.css ger det visuella utseendet för hemsidan (jag har valt monokront svart/vitt/grått för att passa
+bilderna) och hemsidans layout.
+- JS: Filen app.js ändrar innehållet (bild, text, datum) när användaren trycker på knappar.
+
+När sidan laddas/ Vad den ska göra och kalla: Browsern hämtar index.html --> den laddar style.css -->
+JavaScript körs och kallar funktions-lyssnare.
+>
 </body>
-
 </html>
